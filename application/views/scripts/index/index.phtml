@@ -1,0 +1,77 @@
+<?php
+$this->title = "Contests";
+$this->headTitle($this->title);
+?>
+
+<script type="text/javascript">
+/*
+$('#container').isotope({
+      // options
+   itemSelector : '.item',
+   layoutMode : 'fitRows'
+ });
+ */
+
+$(function(){
+
+      $('#items').isotope({ 
+          masonry : {
+              columnWidth : 240
+          }
+      });
+
+    $('#filters a').click(function(){
+
+      var selector = $(this).attr('data-filter');
+      $('#items').isotope({ 
+          filter: selector,
+          masonry : {
+              columnWidth : 240
+          }
+      });
+
+    var $optionSets = $('#options .option-set'),
+    $optionLinks = $optionSets.find('a');
+    
+    $optionLinks.click(function(){
+    var $this = $(this);
+    // don't proceed if already selected
+    if ( $this.hasClass('selected') ) {
+    return false;
+    }
+    var $optionSet = $this.parents('.option-set');
+    $optionSet.find('.selected').removeClass('selected');
+    $this.addClass('selected');
+   
+   return false;
+   }); 
+
+
+
+    });
+});
+</script>
+<section id="options" class="clearfix">
+<ul id="filters" class="option-set clearfix" data-option-key="filter">
+  <li><a href="#" data-filter="*">Show All</a></li>
+<?php
+
+foreach ($this->menu as $menu_item) {
+    echo "<li><a href='#' data-filter='.".$menu_item."'>".ucwords(str_replace('-',' ',$menu_item))."</a></li>";
+
+}
+?>
+</ul>
+
+</section>
+<div class="grid_12" id="items"> 
+<?php
+foreach ($this->channel as $item) {
+    $id = substr($item->id(),-5);
+    echo "<div class='grid_3 item ".$item->category['term']."'>".$item->title() .  " 
+         <a href='". $this->url(array('controller'=>'index','action'=>'contest','id'=>$id)) . "'>
+         Apply >></a> </div>";
+}
+
+?>
+</div>

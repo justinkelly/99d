@@ -1,0 +1,12 @@
+<?php if( ($this->logged_in_with_facebook=='true') AND ($this->facebook_error !=='true') ) : ?>
+        <script>
+            window.close();
+            window.opener.location.reload();
+            </script>
+<?php endif; ?>
+<?php ue') AND ($this->facebook_error =='true') ) : ?>
+        <script>
+            window.close();
+            window.opener.location = "<?php echo $this->url(array('controller'=>'pages','action'=>'facebook'),null,true) ;?>";
+            </script>
+<?php endif; ?>

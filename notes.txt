@@ -1,0 +1,20 @@
+rss: http://99designs.com/feed
+
+1 - require FB login
+-- index / index
+2 - list all contests
+- index / index
+3 - fb apply (and post to wall)
+- index / contest
+4 - view applied contests
+-index / apply
+
+
+-- db --
+
+CREATE TABLE `99d`.`applications` (
+`id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`user_id` INT( 11 ) NOT NULL ,
+`contest_id` INT( 11 ) NOT NULL
+) ENGINE = MYISAM ;
+

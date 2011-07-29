@@ -1,0 +1,19 @@
+<?php
+//$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('99d');
+
+
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+    <meta charset="utf-8">
+    <title>99d</title>
+    </head>
+    <body>
+
+    <?php echo $this->layout()->content; ?>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?php
+$this->title = "Apply";
+$this->headTitle($this->title);
+?>
+
+<div class="grid_12">
+
+<h1>
+<?php echo $this->escape($this->contest->title) ;?>
+</h1>
+<p>
+<?php echo $this->message ;?>
+</p>

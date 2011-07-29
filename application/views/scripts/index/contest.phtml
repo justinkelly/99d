@@ -1,0 +1,18 @@
+
+<?php
+$this->title = "Contests";
+$this->headTitle($this->title);
+?>
+
+
+<div class="grid_12"> 
+
+<h1><?php echo $this->escape($this->contest->title) ;?> </h1>
+
+<p>
+    <?php echo $this->contest->summary ;?>
+</p>
+
+ <a href="<?php echo $this->url(array('controller'=>'index','action'=>'apply','id'=>$this->contest->entry_id));?>">Apply</a>
+* Note: this will post to your Facebook wall
+</div>
