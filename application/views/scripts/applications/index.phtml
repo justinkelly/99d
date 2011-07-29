@@ -1,0 +1,9 @@
+<div class="grid_12" id="items"> 
+<?php
+foreach ($this->applications as $item) {
+    echo "<div class='item'>".$item->title .  " 
+         <a href='". $item->link . "'>View on 99 Designs</a> </div>";
+}
+
+?>
+</div>

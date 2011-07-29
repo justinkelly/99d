@@ -44,9 +44,9 @@ echo $this->doctype(); ?>
     </script>
 </head>
 <body>
-    <div class="container_12 main">
+    <div class="container_12">
             
-       <div id="header" class="grid_12">
+       <div class="grid_12 fmenu">
     
                 <a href="<?php echo $this->url(array('controller'=>'index','action'=>'index'),null,true);?>">99d Home</a> 
                 <?php if (Zend_Registry::get('fbUser')) : ?>
@@ -54,7 +54,7 @@ echo $this->doctype(); ?>
                    <img src="http://static.ak.fbcdn.net/rsrc.php/z2Y31/hash/cxrz4k7j.gif" border="0">
                 </a> Hello <?php echo $registry['fbuser_profile']['name']; ?>
                     <img src="https://graph.facebook.com/<?php echo Zend_Registry::get('fbUser'); ?>/picture">
-                <a href="<?php echo $this->url(array('controller'=>'index','action'=>'applications'),null,true);?>">Your Applications</a>
+                <a href="<?php echo $this->url(array('controller'=>'applications','action'=>'index'),null,true);?>">Your Applications</a>
                 <?php else: ?>
                 <a href="#" onclick="login();return false;">
                 <img src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif" border="0">
@@ -63,9 +63,7 @@ echo $this->doctype(); ?>
             </ul>
         
     </div><!-- end .header -->
-        <div class="grid_12">
             <?php echo $this->layout()->content; ?>
-        </div>
     </div> <!-- end container -->
 </body>
 </html>

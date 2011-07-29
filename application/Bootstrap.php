@@ -5,8 +5,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     public function init()
     {
-        Zend_Dojo::enableView($this->view);
     }
+
     /**
      * init jquery view helper, enable jquery, jqueryui, jquery ui css
      */

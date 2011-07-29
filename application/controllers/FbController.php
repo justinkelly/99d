@@ -6,7 +6,7 @@ class FbController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-         $this->_helper->layout->setLayout('fb');
+        $this->_helper->layout->setLayout('fb');
     }
 
     public function indexAction()
@@ -14,37 +14,19 @@ class FbController extends Zend_Controller_Action
         // action body
     }
 
-
-
     public function logoutAction()
     {
         // action body
         //
-        $_SESSION['fb_132787250133331_code'] =''; 
-        unset($_SESSION['fb_132787250133331_access_token']); 
-        unset($_SESSION['fb_132787250133331_user_id']); 
-     $this->_helper->redirector('index','pages');
+        $_SESSION['fb_' .Zend_Registry::get('fbAppId'). '_code'] =''; 
+        unset($_SESSION['fb_' .Zend_Registry::get('fbAppId'). '_access_token']); 
+        unset($_SESSION['fb_' .Zend_Registry::get('fbAppId'). '_user_id']); 
+        $this->_helper->redirector('index','index');
 
     }
     public function loginAction()
     {    
         //get the user
-        //see if already in the database
-        if (Zend_Registry::get('fbUser')) {
-            $user = new Application_Model_DbTable_Users();
-            $fbuser_profile = Zend_Registry::get('fbuser_profile');
-            if($user->checkUser($fbuser_profile['id']))
-            {
-                //
-            } else {
-                // add refer ID
-                //if come from referal url - add into share log
-                $fbuser_profile['first_login'] ='true';
-                $user->addFBUser($fbuser_profile);
-                //redirect to hwo to page
-                $this->view->first_facebook_login='true';
-            }
-        }
 
         $error = $this->_getParam('error_reason');
         if($error !== '')
